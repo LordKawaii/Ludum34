@@ -1,14 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
     public float movementSpeed = 1;
 
+    List<GameObject> nanobotsCollected;
     Rigidbody2D rb2D;
-    float totalNanoBots = 0;
+
 
     // Use this for initialization
     void Start () {
+        nanobotsCollected = new List<GameObject>();
         rb2D = gameObject.GetComponent<Rigidbody2D>();
     }
 	
@@ -33,6 +36,16 @@ public class PlayerController : MonoBehaviour {
         if (verticalAxis != 0 && horizontalAxis != 0)
         {
             transform.Translate(new Vector3(horizontalAxis * movementSpeed, verticalAxis * movementSpeed));
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "NanoBot")
+        {
+            other.transform.parent = transform;
+            other.gameObject.GetComponent<NanoBotController>().PickUp();
+            nanobotsCollected.Add(other.gameObject);
         }
     }
 

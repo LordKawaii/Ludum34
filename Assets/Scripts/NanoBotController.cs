@@ -9,7 +9,7 @@ public class NanoBotController : MonoBehaviour {
 
     float timeTillChange;
     bool hasBeenFired = false;
-    bool hasBeenPickedUp = true;
+    bool hasBeenPickedUp = false;
     Rigidbody2D rb2d;
 
 	// Use this for initialization
@@ -43,7 +43,14 @@ public class NanoBotController : MonoBehaviour {
             }
         }
 	}
+
+    public void PickUp()
+    {
+        hasBeenPickedUp = true;
+        timeTillChange = Time.time + Random.Range(0, frequencyOfChange);
+    }
 }
+
 
 public static class UnityExtensions
 {
