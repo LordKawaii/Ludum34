@@ -7,13 +7,13 @@ public class NanoBotController : MonoBehaviour {
     public float rotationSpeed;
     public float frequencyOfChange = 1;
 
-    float timeTillChange;
-    bool hasBeenFired = false;
-    bool hasBeenPickedUp = false;
-    Rigidbody2D rb2d;
+    protected float timeTillChange;
+    protected bool hasBeenFired = false;
+    protected bool hasBeenPickedUp = false;
+    protected Rigidbody2D rb2d;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    protected virtual void Start () {
         timeTillChange = Time.time + Random.Range(0, frequencyOfChange);
         rb2d = gameObject.GetComponent<Rigidbody2D>();
 	}
@@ -44,7 +44,7 @@ public class NanoBotController : MonoBehaviour {
         }
 	}
 
-    public void PickUp()
+    public virtual void PickUp()
     {
         hasBeenPickedUp = true;
         timeTillChange = Time.time + Random.Range(0, frequencyOfChange);
