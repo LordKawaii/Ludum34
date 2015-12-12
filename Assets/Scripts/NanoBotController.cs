@@ -10,6 +10,7 @@ public class NanoBotController : MonoBehaviour {
     protected float timeTillChange;
     protected bool hasBeenFired = false;
     protected bool hasBeenPickedUp = false;
+    protected bool isCharging = false;
     protected Rigidbody2D rb2d;
 
     // Use this for initialization
@@ -20,9 +21,15 @@ public class NanoBotController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!hasBeenFired && hasBeenPickedUp)
+        Swarm();
+
+    }
+
+    protected virtual void Swarm()
+    {
+        if (!hasBeenFired && hasBeenPickedUp && !isCharging)
         {
-      
+
             Vector3 targetDirection = (transform.parent.position - transform.position);
             float targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
             Quaternion rotationStep = Quaternion.AngleAxis(targetAngle, Vector3.forward);
@@ -42,12 +49,17 @@ public class NanoBotController : MonoBehaviour {
             {
             }
         }
-	}
+    } 
 
     public virtual void PickUp()
     {
         hasBeenPickedUp = true;
         timeTillChange = Time.time + Random.Range(0, frequencyOfChange);
+    }
+
+    public virtual void Charge()
+    {
+        isCharging = true;
     }
 }
 

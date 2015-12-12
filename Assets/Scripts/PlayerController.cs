@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
     public float movementSpeed = 1;
-
+    
     List<GameObject> nanobotsCollected;
     Rigidbody2D rb2D;
-
+    bool isCharging = false;
 
     // Use this for initialization
     void Start () {
@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         MovePlayer();
+        CheckIfShooting();
+
     }
 
     void MovePlayer()
@@ -36,6 +38,18 @@ public class PlayerController : MonoBehaviour {
         if (verticalAxis != 0 && horizontalAxis != 0)
         {
             transform.Translate(new Vector3(horizontalAxis * movementSpeed, verticalAxis * movementSpeed));
+        }
+    }
+    
+    void CheckIfShooting()
+    {
+        if (Input.GetAxis("Fire1") != 0)
+        {
+            isCharging = true;
+            if (nanobotsCollected.Count > 0)
+            {
+
+            }
         }
     }
 
