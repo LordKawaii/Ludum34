@@ -10,8 +10,8 @@ GameObject:
   - 4: {fileID: 496538}
   - 212: {fileID: 21246854}
   - 50: {fileID: 5046252}
-  - 58: {fileID: 5894528}
   - 114: {fileID: 11421874}
+  - 61: {fileID: 6128444}
   m_Layer: 0
   m_Name: MiniEnemy
   m_TagString: Enemy
@@ -25,9 +25,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 170280}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .621740103, y: 3.73000002, z: -.84375}
-  m_LocalScale: {x: .400000006, y: .400000006, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
+  m_LocalPosition: {x: -0, y: -.709999979, z: 0}
+  m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -47,8 +47,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &5894528
-CircleCollider2D:
+--- !u!61 &6128444
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -57,9 +57,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -.00682100654, y: -.0131024793}
   serializedVersion: 2
-  m_Radius: .100000001
+  m_Size: {x: 2.24254274, y: .928740144}
 --- !u!114 &11421874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72,9 +72,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swarmSpeed: 300
-  swarmRadius: .300000012
+  swarmRadius: 1.5
   rotationSpeed: 300
   frequencyOfChange: .00100000005
+  chargeDistance: .0599999987
+  fireSpeed: 10
+  hp: 3
 --- !u!212 &21246854
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class EnemyBotController : NanoBotController {
+    public int hp = 3;
 
 	// Override for NanoBotController Start()
 	override protected void Start () {
@@ -15,5 +16,19 @@ public class EnemyBotController : NanoBotController {
         {
         }
 	}
+
+    override protected void Update()
+    {
+        Swarm();
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "NanoBot")
+        {
+            other.transform.parent = transform;
+            other.GetComponent<NanoBotController>().swarmRadius = .001f;
+        }
+    }
 	
 }

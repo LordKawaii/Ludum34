@@ -6,6 +6,8 @@ public class NanoBotController : MonoBehaviour {
     public float swarmRadius;
     public float rotationSpeed;
     public float frequencyOfChange = 1;
+    public float chargeDistance = .06f;
+    public float fireSpeed = 10;
 
     protected float timeTillChange;
     protected bool hasBeenFired = false;
@@ -18,9 +20,9 @@ public class NanoBotController : MonoBehaviour {
         timeTillChange = Time.time + Random.Range(0, frequencyOfChange);
         rb2d = gameObject.GetComponent<Rigidbody2D>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    protected virtual void Update () {
         Swarm();
 
     }
@@ -54,12 +56,24 @@ public class NanoBotController : MonoBehaviour {
     public virtual void PickUp()
     {
         hasBeenPickedUp = true;
+        hasBeenFired = false;
         timeTillChange = Time.time + Random.Range(0, frequencyOfChange);
     }
 
-    public virtual void Charge()
+    public virtual void Charge(int numberCharged)
     {
         isCharging = true;
+        rb2d.velocity = new Vector2(0,0);
+        transform.position = new Vector3(transform.parent.position.x, transform.parent.position.y + (chargeDistance * numberCharged));
+        transform.rotation = Quaternion.Euler(0, 0, 90);
+    }
+
+    public virtual void Fire()
+    {
+        isCharging = false;
+        hasBeenFired = true;
+        transform.parent = null;
+        rb2d.AddForce(Vector2.up * fireSpeed);
     }
 }
 

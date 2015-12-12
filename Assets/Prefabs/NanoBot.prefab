@@ -75,6 +75,8 @@ MonoBehaviour:
   swarmRadius: .300000012
   rotationSpeed: 300
   frequencyOfChange: .00100000005
+  chargeDistance: .600000024
+  fireSpeed: 100
 --- !u!212 &21213524
 SpriteRenderer:
   m_ObjectHideFlags: 1
