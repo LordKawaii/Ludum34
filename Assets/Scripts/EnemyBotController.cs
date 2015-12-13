@@ -46,7 +46,8 @@ public class EnemyBotController : NanoBotController {
     {
         if (other.tag == "NanoBot")
         {
-            if (!other.GetComponent<NanoBotController>().CheckIfAttacking())
+            NanoBotController nanoCon = other.GetComponent<NanoBotController>();
+            if (!nanoCon.CheckIfAttacking() && !nanoCon.CheckIfSwarming())
                 hp--;
 
             other.GetComponent<NanoBotController>().Attack(gameObject);

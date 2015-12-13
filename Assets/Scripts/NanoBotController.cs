@@ -8,12 +8,14 @@ public class NanoBotController : MonoBehaviour {
     public float frequencyOfChange = 1;
     public float chargeDistance = .06f;
     public float fireSpeed = 10;
-    
+    public float maxVelocity = 10;
+
     protected float timeTillChange;
     protected bool hasBeenFired = false;
     protected bool hasBeenPickedUp = false;
     protected bool isCharging = false;
     protected bool isAttacking = false;
+    protected bool isSwarming = false;
     protected Rigidbody2D rb2d;
     protected GameObject swarmTarget;
 
@@ -42,6 +44,7 @@ public class NanoBotController : MonoBehaviour {
         {
             try
             {
+                isSwarming = true;
                 if (transform.parent != null)
                     swarmTarget = transform.parent.gameObject;
 
@@ -53,8 +56,15 @@ public class NanoBotController : MonoBehaviour {
 
                 if (timeTillChange <= Time.time)
                 {
+                    float xDist = (float)(transform.position.x - swarmTarget.transform.position.x);
+                    float yDist = (float)(transform.position.y - swarmTarget.transform.position.y);
+                    float distanceBetween = Mathf.Sqrt((yDist * yDist) - (xDist * xDist));
+                    if (distanceBetween > swarmRadius)
+                    {
+                        rb2d.AddForce(-rb2d.velocity);
+                    }
                     rb2d.AddForce(new Vector2(targetDirection.x + Random.Range(-swarmRadius, swarmRadius), targetDirection.y + Random.Range(-swarmRadius, swarmRadius)) * swarmSpeed * Time.deltaTime);
-                    //transform.position = Vector3.Lerp(transform.position,transform.parent.position + new Vector3((Random.Range(-swarmRadius, swarmRadius)), (Random.Range(-swarmRadius, swarmRadius))), Time.deltaTime * swarmSpeed);
+                    rb2d.velocity = Vector2.ClampMagnitude(rb2d.velocity, maxVelocity);                    //transform.position = Vector3.Lerp(transform.position,transform.parent.position + new Vector3((Random.Range(-swarmRadius, swarmRadius)), (Random.Range(-swarmRadius, swarmRadius))), Time.deltaTime * swarmSpeed);
                     //transform.Translate(new Vector3(transform.parent.position.x + Random.Range(-swarmRadius, swarmRadius), transform.parent.position.y + Random.Range(-swarmRadius, swarmRadius)) * Time.deltaTime);
                     timeTillChange = Time.time + Random.Range(0, frequencyOfChange);
                 }
@@ -101,14 +111,18 @@ public class NanoBotController : MonoBehaviour {
 
     public virtual void Charge(int numberCharged)
     {
-        isCharging = true;
-        rb2d.velocity = new Vector2(0,0);
-        transform.position = new Vector3(transform.parent.position.x, transform.parent.position.y + (chargeDistance * numberCharged));
-        transform.rotation = Quaternion.Euler(0, 0, 90);
+        if (!isCharging)
+        { 
+            isCharging = true;
+            rb2d.velocity = new Vector2(0,0);
+            transform.position = new Vector3(transform.parent.position.x, transform.parent.position.y + (chargeDistance * numberCharged));
+            transform.rotation = Quaternion.Euler(0, 0, 90);
+        }
     }
 
     public virtual void Fire()
     {
+        isSwarming = false;
         hasBeenPickedUp = false;
         isCharging = false;
         hasBeenFired = true;
@@ -119,6 +133,11 @@ public class NanoBotController : MonoBehaviour {
     public bool CheckIfAttacking()
     {
         return isAttacking;
+    }
+
+    public bool CheckIfSwarming()
+    {
+        return isSwarming;
     }
 
 }

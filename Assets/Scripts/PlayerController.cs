@@ -10,8 +10,8 @@ public class PlayerController : MonoBehaviour {
     public float nanobotGenRate = 1;
     public GameObject nanobot;
     
-    List<GameObject> nanobotsCollected;
     List<GameObject> chargedNanobots;
+    Stack<GameObject> nanobotsCollected;
     Rigidbody2D rb2D;
     bool isCharging = false;
     float timeTillNextCharge;
@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         chargedNanobots = new List<GameObject>();
-        nanobotsCollected = new List<GameObject>();
+        nanobotsCollected = new Stack<GameObject>();
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         timeTillNextCharge = Time.time + nanobotChargeRate;
         timeTillNextBotGen = Time.time + timeTillNextBotGen;
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour {
         MovePlayer();
         CheckIfShooting();
 
-        if(nanobotsCollected.Count < 3 && chargedNanobots.Count < 3 && Time.time >= timeTillNextBotGen)
+        if((nanobotsCollected.Count + chargedNanobots.Count) < 3 && Time.time >= timeTillNextBotGen)
         { 
             GenerateBot();
         }
@@ -54,16 +54,16 @@ public class PlayerController : MonoBehaviour {
     
     void CheckIfShooting()
     {
-        if (Input.GetAxis("Fire1") != 0)
+        if (Input.GetButton("Fire1"))
         {
             try
             {
                 isCharging = true;
                 if (nanobotsCollected.Count > 0 && Time.time >= timeTillNextCharge)
                 {
-                    chargedNanobots.Add(nanobotsCollected[nanobotsCollected.Count -1]);
-                    nanobotsCollected.RemoveAt(nanobotsCollected.Count - 1);
+                    chargedNanobots.Add(nanobotsCollected.Pop());
                     chargedNanobots[chargedNanobots.Count - 1].GetComponent<NanoBotController>().Charge(chargedNanobots.Count);
+
                     timeTillNextCharge = Time.time + nanobotChargeRate;
                 }
             }
@@ -71,14 +71,17 @@ public class PlayerController : MonoBehaviour {
             {
             }
         }
-        if (Input.GetAxis("Fire1") == 0 && isCharging == true)
+        if (Input.GetButtonUp("Fire1"))
         {
-            foreach(GameObject nanobot in chargedNanobots)
+            if (chargedNanobots.Count > 0)
             {
-                nanobot.GetComponent<NanoBotController>().Fire();
+                foreach (GameObject nanobot in chargedNanobots)
+                {
+                    nanobot.GetComponent<NanoBotController>().Fire();
+                }
+                chargedNanobots = new List<GameObject>();
+                isCharging = false;
             }
-            chargedNanobots = new List<GameObject>();
-            isCharging = false;
         }
     }
 
@@ -101,7 +104,7 @@ public class PlayerController : MonoBehaviour {
         {
             other.transform.parent = transform;
             other.gameObject.GetComponent<NanoBotController>().PickUp();
-            nanobotsCollected.Add(other.gameObject);
+            nanobotsCollected.Push(other.gameObject);
         }
     }
 
