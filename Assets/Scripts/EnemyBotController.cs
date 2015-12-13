@@ -26,8 +26,7 @@ public class EnemyBotController : NanoBotController {
     {
         if (other.tag == "NanoBot")
         {
-            other.transform.parent = transform;
-            other.GetComponent<NanoBotController>().swarmRadius = .001f;
+            other.GetComponent<NanoBotController>().Attack(gameObject);
         }
     }
 	

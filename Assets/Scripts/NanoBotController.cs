@@ -8,18 +8,22 @@ public class NanoBotController : MonoBehaviour {
     public float frequencyOfChange = 1;
     public float chargeDistance = .06f;
     public float fireSpeed = 10;
-
+    
     protected float timeTillChange;
     protected bool hasBeenFired = false;
     protected bool hasBeenPickedUp = false;
     protected bool isCharging = false;
+    protected bool isAttacking = false;
     protected Rigidbody2D rb2d;
+    protected GameObject swarmTarget;
 
     // Use this for initialization
     protected virtual void Start () {
         timeTillChange = Time.time + Random.Range(0, frequencyOfChange);
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-	}
+
+
+    }
 
     // Update is called once per frame
     protected virtual void Update () {
@@ -29,10 +33,12 @@ public class NanoBotController : MonoBehaviour {
 
     protected virtual void Swarm()
     {
-        if (!hasBeenFired && hasBeenPickedUp && !isCharging)
+        if (!hasBeenFired && hasBeenPickedUp && !isCharging && !isAttacking)
         {
+            if (transform.parent != null)
+                swarmTarget = transform.parent.gameObject;
 
-            Vector3 targetDirection = (transform.parent.position - transform.position);
+            Vector3 targetDirection = (swarmTarget.transform.position - transform.position);
             float targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
             Quaternion rotationStep = Quaternion.AngleAxis(targetAngle, Vector3.forward);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationStep, Time.deltaTime * rotationSpeed);
@@ -51,10 +57,22 @@ public class NanoBotController : MonoBehaviour {
             {
             }
         }
-    } 
+    }
+
+    public virtual void Attack(GameObject target)
+    {
+        if (!isAttacking)
+        {
+            rb2d.velocity = new Vector2(0, 0);
+            rb2d.isKinematic = true;
+            transform.parent = target.transform;
+            isAttacking = true;
+        }
+    }
 
     public virtual void PickUp()
     {
+        swarmTarget = transform.parent.gameObject;
         hasBeenPickedUp = true;
         hasBeenFired = false;
         timeTillChange = Time.time + Random.Range(0, frequencyOfChange);
