@@ -3,14 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
+    const float TRANSFORM_RAND_RANGE = .2f;
+
     public float movementSpeed = 1;
     public float nanobotChargeRate = .5f;
+    public float nanobotGenRate = 1;
+    public GameObject nanobot;
     
     List<GameObject> nanobotsCollected;
     List<GameObject> chargedNanobots;
     Rigidbody2D rb2D;
     bool isCharging = false;
     float timeTillNextCharge;
+    float timeTillNextBotGen;
 
     // Use this for initialization
     void Start () {
@@ -18,6 +23,7 @@ public class PlayerController : MonoBehaviour {
         nanobotsCollected = new List<GameObject>();
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         timeTillNextCharge = Time.time + nanobotChargeRate;
+        timeTillNextBotGen = Time.time + timeTillNextBotGen;
     }
 	
 	// Update is called once per frame
@@ -25,6 +31,10 @@ public class PlayerController : MonoBehaviour {
         MovePlayer();
         CheckIfShooting();
 
+        if(nanobotsCollected.Count < 3 && chargedNanobots.Count < 3 && Time.time >= timeTillNextBotGen)
+        { 
+            GenerateBot();
+        }
     }
 
     void MovePlayer()
@@ -32,17 +42,13 @@ public class PlayerController : MonoBehaviour {
         float horizontalAxis = Input.GetAxis("Horizontal");
         float verticalAxis = Input.GetAxis("Vertical");
 
-        if (horizontalAxis != 0 && verticalAxis == 0)
+        if (horizontalAxis != 0)
         {
             transform.Translate(new Vector3(horizontalAxis * movementSpeed, 0));
         }
-        if (verticalAxis != 0 && horizontalAxis ==0)
+        if (verticalAxis != 0)
         {
             transform.Translate(new Vector3(0, verticalAxis * movementSpeed));
-        }
-        if (verticalAxis != 0 && horizontalAxis != 0)
-        {
-            transform.Translate(new Vector3(horizontalAxis * movementSpeed, verticalAxis * movementSpeed));
         }
     }
     
@@ -73,6 +79,19 @@ public class PlayerController : MonoBehaviour {
             }
             chargedNanobots = new List<GameObject>();
             isCharging = false;
+        }
+    }
+
+    void GenerateBot()
+    {
+        if (nanobot != null)
+        {
+            Instantiate(nanobot, new Vector3
+                (transform.position.x + Random.Range(-TRANSFORM_RAND_RANGE, TRANSFORM_RAND_RANGE), 
+                transform.position.y + Random.Range(-TRANSFORM_RAND_RANGE, TRANSFORM_RAND_RANGE)), transform.rotation);
+            //End Instantiate
+
+            timeTillNextBotGen = Time.time + nanobotGenRate;
         }
     }
 

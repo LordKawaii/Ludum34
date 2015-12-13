@@ -139,98 +139,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &192260913
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: .920000017
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: .707106829
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: .707106709
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 165280, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_Name
-      value: NanoBot (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-  m_IsPrefabParent: 0
---- !u!1001 &194532237
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -.930000007
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: .707106829
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: .707106709
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 165280, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_Name
-      value: NanoBot (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &252575042
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +224,7 @@ Transform:
   m_LocalScale: {x: .180000007, y: .180000007, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 6
 --- !u!114 &252575047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,6 +238,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: .0500000007
   nanobotChargeRate: .5
+  nanobotGenRate: 3
+  nanobot: {fileID: 165280, guid: 78432dcee95cad843813ed98efd819da, type: 2}
 --- !u!1 &258076717
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,94 +331,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!1001 &379439267
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -.048960004
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: .920000017
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: .707106829
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: .707106709
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-  m_IsPrefabParent: 0
---- !u!1001 &498944833
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -.0500000007
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.70000005
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: .707106829
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: .707106709
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 165280, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_Name
-      value: NanoBot (2)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-  m_IsPrefabParent: 0
 --- !u!4 &561831892 stripped
 Transform:
   m_PrefabParentObject: {fileID: 496538, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
@@ -782,52 +604,6 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 496538, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
   m_PrefabInternal: {fileID: 164817159}
---- !u!1001 &1349814327
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -2.1400001
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: .920000017
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: .707106829
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: .707106709
-      objectReference: {fileID: 0}
-    - target: {fileID: 429094, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 165280, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-      propertyPath: m_Name
-      value: NanoBot (4)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 78432dcee95cad843813ed98efd819da, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1349884772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,7 +880,7 @@ Transform:
   - {fileID: 561831892}
   - {fileID: 2030815292}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
 --- !u!58 &1843134926
 CircleCollider2D:
   m_ObjectHideFlags: 0
