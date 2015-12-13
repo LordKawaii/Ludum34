@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyBossController : MonoBehaviour {
     bool movingRight = true;
 
+    public int hp = 6;
     public float movementSpeed;
     public float travelWidth;
 	// Use this for initialization
@@ -21,5 +22,22 @@ public class EnemyBossController : MonoBehaviour {
             transform.Translate(Vector2.left * Time.deltaTime * movementSpeed);
         if (transform.position.x <= -travelWidth)
             movingRight = true;
+    }
+
+    void LateUpdate()
+    {
+        if (hp <= 0)
+            Destroy(gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "NanoBot")
+        {
+            if (!other.GetComponent<NanoBotController>().CheckIfAttacking())
+                hp--;
+
+            other.GetComponent<NanoBotController>().Attack(gameObject);
+        }
     }
 }
