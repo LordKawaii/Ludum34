@@ -1,0 +1,298 @@
+fileFormatVersion: 2
+guid: 1c38a8f54af90ca4081f3ce65b734714
+timeCreated: 1449981733
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: MiniBaddySprite_0
+    21300002: MiniBaddySprite_1
+    21300004: MiniBaddySprite_2
+    21300006: MiniBaddySprite_3
+    21300008: MiniBaddySprite_4
+    21300010: MiniBaddySprite_5
+    21300012: MiniBaddySprite_6
+    21300014: MiniBaddySprite_7
+    21300016: MiniBaddySprite_8
+    21300018: MiniBaddySprite_9
+    21300020: MiniBaddySprite_10
+    21300022: MiniBaddySprite_11
+    21300024: MiniBaddySprite_12
+    21300026: MiniBaddySprite_13
+    21300028: MiniBaddySprite_14
+    21300030: MiniBaddySprite_15
+    21300032: MiniBaddySprite_16
+    21300034: MiniBaddySprite_17
+    21300036: MiniBaddySprite_18
+    21300038: MiniBaddySprite_19
+    21300040: MiniBaddySprite_20
+    21300042: MiniBaddySprite_21
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 200
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: MiniBaddySprite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 748
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_1
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 748
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_2
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 748
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_3
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 748
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_4
+      rect:
+        serializedVersion: 2
+        x: 1648
+        y: 748
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_5
+      rect:
+        serializedVersion: 2
+        x: 2060
+        y: 748
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_6
+      rect:
+        serializedVersion: 2
+        x: 2472
+        y: 748
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_7
+      rect:
+        serializedVersion: 2
+        x: 2884
+        y: 748
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_8
+      rect:
+        serializedVersion: 2
+        x: 3296
+        y: 748
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_9
+      rect:
+        serializedVersion: 2
+        x: 3708
+        y: 748
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_10
+      rect:
+        serializedVersion: 2
+        x: 4120
+        y: 748
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_12
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 0
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_13
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 0
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_14
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 0
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_15
+      rect:
+        serializedVersion: 2
+        x: 1648
+        y: 0
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_16
+      rect:
+        serializedVersion: 2
+        x: 2060
+        y: 0
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_17
+      rect:
+        serializedVersion: 2
+        x: 2472
+        y: 0
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_18
+      rect:
+        serializedVersion: 2
+        x: 2884
+        y: 0
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_19
+      rect:
+        serializedVersion: 2
+        x: 3296
+        y: 0
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_20
+      rect:
+        serializedVersion: 2
+        x: 3708
+        y: 0
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: MiniBaddySprite_21
+      rect:
+        serializedVersion: 2
+        x: 4120
+        y: 0
+        width: 412
+        height: 748
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
