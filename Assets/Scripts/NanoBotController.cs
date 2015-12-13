@@ -29,22 +29,28 @@ public class NanoBotController : MonoBehaviour {
     protected virtual void Update () {
         Swarm();
 
+        if (transform.position.y > 15 || transform.position.y < -15)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     protected virtual void Swarm()
     {
         if (!hasBeenFired && hasBeenPickedUp && !isCharging && !isAttacking)
         {
-            if (transform.parent != null)
-                swarmTarget = transform.parent.gameObject;
-
-            Vector3 targetDirection = (swarmTarget.transform.position - transform.position);
-            float targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
-            Quaternion rotationStep = Quaternion.AngleAxis(targetAngle, Vector3.forward);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationStep, Time.deltaTime * rotationSpeed);
-
             try
             {
+                if (transform.parent != null)
+                    swarmTarget = transform.parent.gameObject;
+
+                Vector3 targetDirection = (swarmTarget.transform.position - transform.position);
+                float targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+                Quaternion rotationStep = Quaternion.AngleAxis(targetAngle, Vector3.forward);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationStep, Time.deltaTime * rotationSpeed);
+
+
                 if (timeTillChange <= Time.time)
                 {
                     rb2d.AddForce(new Vector2(targetDirection.x + Random.Range(-swarmRadius, swarmRadius), targetDirection.y + Random.Range(-swarmRadius, swarmRadius)) * swarmSpeed * Time.deltaTime);
@@ -61,7 +67,7 @@ public class NanoBotController : MonoBehaviour {
 
     public virtual void Attack(GameObject target)
     {
-        if (!isAttacking)
+        if (!isAttacking && !hasBeenPickedUp)
         {
             rb2d.velocity = new Vector2(0, 0);
             rb2d.isKinematic = true;
@@ -70,12 +76,26 @@ public class NanoBotController : MonoBehaviour {
         }
     }
 
+    public virtual void EndAttack()
+    {
+        if (isAttacking)
+        {
+            rb2d.velocity = new Vector2(0, -1);
+            rb2d.isKinematic = false;
+            transform.parent = null;
+            isAttacking = false;
+        }
+    }
+
     public virtual void PickUp()
     {
-        swarmTarget = transform.parent.gameObject;
-        hasBeenPickedUp = true;
-        hasBeenFired = false;
-        timeTillChange = Time.time + Random.Range(0, frequencyOfChange);
+        if (!isAttacking)
+        { 
+            swarmTarget = transform.parent.gameObject;
+            hasBeenPickedUp = true;
+            hasBeenFired = false;
+            timeTillChange = Time.time + Random.Range(0, frequencyOfChange);
+        }
     }
 
     public virtual void Charge(int numberCharged)
@@ -88,11 +108,18 @@ public class NanoBotController : MonoBehaviour {
 
     public virtual void Fire()
     {
+        hasBeenPickedUp = false;
         isCharging = false;
         hasBeenFired = true;
         transform.parent = null;
         rb2d.AddForce(Vector2.up * fireSpeed);
     }
+
+    public bool CheckIfAttacking()
+    {
+        return isAttacking;
+    }
+
 }
 
 

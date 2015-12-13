@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165280}
   m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
-  m_LocalPosition: {x: -.048960004, y: .920000017, z: 0}
+  m_LocalPosition: {x: 3, y: .920000017, z: 0}
   m_LocalScale: {x: .0900000036, y: .0900000036, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ MonoBehaviour:
   swarmRadius: .300000012
   rotationSpeed: 300
   frequencyOfChange: .00100000005
-  chargeDistance: .600000024
+  chargeDistance: .200000003
   fireSpeed: 100
 --- !u!212 &21213524
 SpriteRenderer:

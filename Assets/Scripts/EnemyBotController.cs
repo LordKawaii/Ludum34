@@ -20,12 +20,35 @@ public class EnemyBotController : NanoBotController {
     override protected void Update()
     {
         Swarm();
+        CheckForDeath();
+    }
+
+    void LateUpdate()
+    {
+        if (hp <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void CheckForDeath()
+    {
+        if (hp <= 0)
+        {
+            foreach (Transform nanobotTransform in GetComponentInChildren<Transform>())
+            {
+                nanobotTransform.gameObject.GetComponent<NanoBotController>().EndAttack();
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "NanoBot")
         {
+            if (!other.GetComponent<NanoBotController>().CheckIfAttacking())
+                hp--;
+
             other.GetComponent<NanoBotController>().Attack(gameObject);
         }
     }
