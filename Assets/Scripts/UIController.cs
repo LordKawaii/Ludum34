@@ -8,6 +8,7 @@ public class UIController : MonoBehaviour
 {
 
     public List<Image> heroLives;
+    public Text attachedBots;
 
     PlayerController playerController;
 
@@ -23,6 +24,8 @@ public class UIController : MonoBehaviour
         //Update the number of lives images so that they match the number of player lives
         if (playerController.lives < 3)
            heroLives[playerController.lives].enabled = false;
+
+        attachedBots.text = "x " + playerController.GetTotalBotCount();
 
     }
 }

@@ -165,5 +165,8 @@ public class PlayerController : MonoBehaviour {
             }
         }
     }
-
+    public int GetTotalBotCount()
+    {
+        return chargedNanobots.Count + nanobotsCollected.Count;
+    }
 }
