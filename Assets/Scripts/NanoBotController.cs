@@ -48,10 +48,7 @@ public class NanoBotController : MonoBehaviour {
                 if (transform.parent != null)
                     swarmTarget = transform.parent.gameObject;
 
-                Vector3 targetDirection = (swarmTarget.transform.position - transform.position);
-                float targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
-                Quaternion rotationStep = Quaternion.AngleAxis(targetAngle, Vector3.forward);
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationStep, Time.deltaTime * rotationSpeed);
+                RotateTowards(new Vector3(swarmTarget.transform.position.x, swarmTarget.transform.position.y));
 
 
                 if (timeTillChange <= Time.time)
@@ -63,6 +60,7 @@ public class NanoBotController : MonoBehaviour {
                     {
                         rb2d.AddForce(-rb2d.velocity);
                     }
+                    Vector3 targetDirection = (swarmTarget.transform.position - transform.position);
                     rb2d.AddForce(new Vector2(targetDirection.x + Random.Range(-swarmRadius, swarmRadius), targetDirection.y + Random.Range(-swarmRadius, swarmRadius)) * swarmSpeed * Time.deltaTime);
                     rb2d.velocity = Vector2.ClampMagnitude(rb2d.velocity, maxVelocity);                    //transform.position = Vector3.Lerp(transform.position,transform.parent.position + new Vector3((Random.Range(-swarmRadius, swarmRadius)), (Random.Range(-swarmRadius, swarmRadius))), Time.deltaTime * swarmSpeed);
                     //transform.Translate(new Vector3(transform.parent.position.x + Random.Range(-swarmRadius, swarmRadius), transform.parent.position.y + Random.Range(-swarmRadius, swarmRadius)) * Time.deltaTime);
@@ -73,6 +71,14 @@ public class NanoBotController : MonoBehaviour {
             {
             }
         }
+    }
+
+    public virtual void RotateTowards(Vector3 target)
+    {
+        Vector3 targetDirection = (target - transform.position);
+        float targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
+        Quaternion rotationStep = Quaternion.AngleAxis(targetAngle, Vector3.forward);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationStep, Time.deltaTime * rotationSpeed);
     }
 
     public virtual void Attack(GameObject target)

@@ -6,6 +6,7 @@ public class EnemyBossController : MonoBehaviour {
     bool movingRight = true;
     List<GameObject> miniBaddies;
     float timeTillNextAttack;
+    GameObject player;
 
     public float attackRate = 1;
     public int hp = 6;
@@ -19,6 +20,8 @@ public class EnemyBossController : MonoBehaviour {
     }
 
 	void Start () {
+        player = GameObject.FindGameObjectWithTag("Player");
+
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             if (enemy.transform.parent == transform)
@@ -34,7 +37,10 @@ public class EnemyBossController : MonoBehaviour {
         Move();
 
         if (Time.time >= timeTillNextAttack)
+        {
             Attack();
+            timeTillNextAttack = Time.time + attackRate;
+        }
     }
 
     void LateUpdate()
@@ -57,7 +63,14 @@ public class EnemyBossController : MonoBehaviour {
 
     void Attack()
     {
-        
+        int randIndex = Random.Range(0, miniBaddies.Count - 1);
+        EnemyBotController miniBaddieCon;
+        if (miniBaddies[randIndex] != null)
+        { 
+            miniBaddieCon = miniBaddies[randIndex].GetComponent<EnemyBotController>();
+            if (!miniBaddieCon.CheckIfAttacking())
+                miniBaddieCon.Attack(player);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

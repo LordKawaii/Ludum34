@@ -3,7 +3,11 @@ using System.Collections;
 
 public class EnemyBotController : NanoBotController {
     public int hp = 3;
+    public bool isBossMinon = false;
 
+    bool movingTowardsPlayer = false;
+    Vector3 playersLocation;
+    Transform startingPoint;
 	// Override for NanoBotController Start()
 	override protected void Start () {
         try
@@ -19,8 +23,15 @@ public class EnemyBotController : NanoBotController {
 
     override protected void Update()
     {
-        Swarm();
+
         CheckForDeath();
+
+    }
+
+    void FixedUpdate()
+    {
+        MoveToAttack();
+        Swarm();
     }
 
     void LateUpdate()
@@ -40,6 +51,45 @@ public class EnemyBotController : NanoBotController {
                 nanobotTransform.gameObject.GetComponent<NanoBotController>().EndAttack();
             }
         }
+    }
+
+    void MoveToAttack()
+    {
+        
+        if (movingTowardsPlayer)
+        {
+            
+            transform.position = Vector3.MoveTowards(transform.position, playersLocation,  fireSpeed * Time.deltaTime);
+            RotateTowards(playersLocation);
+            if (transform.position == playersLocation)
+                movingTowardsPlayer = false;
+        }
+        else if (isAttacking)
+        {
+
+            transform.position = Vector3.MoveTowards(transform.position, startingPoint.position, fireSpeed * Time.deltaTime);
+            RotateTowards(startingPoint.position);
+            if (transform.position == startingPoint.position)
+            { 
+                isAttacking = false;
+                rb2d.isKinematic = false;
+                if (isBossMinon)
+                    transform.parent = startingPoint;
+            }
+        }
+    }
+
+    public override void Attack(GameObject target)
+    {
+        //base.Attack(target);
+        movingTowardsPlayer = true;
+        isAttacking = true;
+        if (isBossMinon)
+            startingPoint = transform.parent;
+        rb2d.velocity = Vector2.zero;
+        rb2d.isKinematic = true;
+        transform.parent = null;
+        playersLocation = new Vector3(target.transform.position.x, target.transform.position.y);
     }
 
     void OnTriggerEnter2D(Collider2D other)

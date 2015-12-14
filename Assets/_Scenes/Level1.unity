@@ -157,6 +157,14 @@ Prefab:
       propertyPath: m_Name
       value: MiniEnemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 11421874, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
+      propertyPath: isBossMinon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421874, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
+      propertyPath: fireSpeed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
   m_IsPrefabParent: 0
@@ -437,8 +445,8 @@ GameObject:
   - 4: {fileID: 252575046}
   - 212: {fileID: 252575045}
   - 50: {fileID: 252575043}
-  - 114: {fileID: 252575047}
   - 61: {fileID: 252575044}
+  - 114: {fileID: 252575047}
   - 95: {fileID: 252575048}
   m_Layer: 0
   m_Name: Player
@@ -529,6 +537,9 @@ MonoBehaviour:
   nanobotChargeRate: .5
   nanobotGenRate: 3
   nanobot: {fileID: 165280, guid: 78432dcee95cad843813ed98efd819da, type: 2}
+  lives: 3
+  invulerableTime: 1
+  percentFlashTakes: 2
 --- !u!95 &252575048
 Animator:
   serializedVersion: 3
@@ -558,9 +569,10 @@ GameObject:
   - 23: {fileID: 258076720}
   - 61: {fileID: 258076719}
   - 50: {fileID: 258076718}
+  - 61: {fileID: 258076723}
   m_Layer: 0
   m_Name: WallOne
-  m_TagString: Floor
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -589,11 +601,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 258076717}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: .400000006, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: .198987633, y: 1}
 --- !u!23 &258076720
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -637,6 +649,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!61 &258076723
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 258076717}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: -.400506198, y: 0}
+  serializedVersion: 2
+  m_Size: {x: .198987633, y: 1}
 --- !u!1 &423674009 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 170280, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
@@ -721,6 +746,14 @@ Prefab:
     - target: {fileID: 496538, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421874, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
+      propertyPath: isBossMinon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421874, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
+      propertyPath: fireSpeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
@@ -871,6 +904,14 @@ Prefab:
       propertyPath: m_Name
       value: MiniEnemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 11421874, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
+      propertyPath: isBossMinon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421874, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
+      propertyPath: fireSpeed
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
   m_IsPrefabParent: 0
@@ -949,6 +990,14 @@ Prefab:
     - target: {fileID: 170280, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
       propertyPath: m_Name
       value: MiniEnemy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421874, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
+      propertyPath: isBossMinon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421874, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
+      propertyPath: fireSpeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
@@ -1336,13 +1385,27 @@ GameObject:
   - 23: {fileID: 1505400727}
   - 61: {fileID: 1505400726}
   - 50: {fileID: 1505400725}
+  - 61: {fileID: 1505400724}
   m_Layer: 0
   m_Name: WallTwo
-  m_TagString: Floor
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!61 &1505400724
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1505400723}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: .400000006, y: 0}
+  serializedVersion: 2
+  m_Size: {x: .198987633, y: 1}
 --- !u!50 &1505400725
 Rigidbody2D:
   serializedVersion: 2
@@ -1367,11 +1430,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1505400723}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -.400506198, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: .198987633, y: 1}
 --- !u!23 &1505400727
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1505,6 +1568,104 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 496538, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
   m_PrefabInternal: {fileID: 1197864932}
+--- !u!1 &1777826536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1777826538}
+  - 82: {fileID: 1777826537}
+  m_Layer: 0
+  m_Name: Slow Shooter loop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1777826537
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1777826536}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3ca483cc34faaf1428c4ab539f34ad5a, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: .330000013
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!4 &1777826538
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1777826536}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
 --- !u!1 &1843134924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,6 +1791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d15ed58bac8438d478774c371547551b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRate: 1
   hp: 6
   movementSpeed: 2
   travelWidth: 2
@@ -1700,6 +1862,14 @@ Prefab:
     - target: {fileID: 170280, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
       propertyPath: m_Name
       value: MiniEnemy (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421874, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
+      propertyPath: isBossMinon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421874, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}
+      propertyPath: fireSpeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15af5e0105f05df4f82f30a36b305bed, type: 2}

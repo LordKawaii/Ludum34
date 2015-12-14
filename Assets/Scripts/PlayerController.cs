@@ -138,6 +138,7 @@ public class PlayerController : MonoBehaviour {
         { 
             isInvulnerable = false;
             spriteRend.enabled = true;
+            hasSetInvTime = false;
         }
     }
 
@@ -150,7 +151,7 @@ public class PlayerController : MonoBehaviour {
             nanobotsCollected.Push(other.gameObject);
         }
 
-        if (other.tag == "Enemy")
+        if (other.tag == "Enemy" || other.tag == "Wall")
         {
             if (!isInvulnerable)
             {
