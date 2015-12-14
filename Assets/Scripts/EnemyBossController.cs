@@ -36,7 +36,7 @@ public class EnemyBossController : MonoBehaviour {
     {
         Move();
 
-        if (Time.time >= timeTillNextAttack)
+        if (Time.time >= timeTillNextAttack && miniBaddies[0].GetComponent<EnemyBotController>().checkCanAttack())
         {
             Attack();
             timeTillNextAttack = Time.time + attackRate;
