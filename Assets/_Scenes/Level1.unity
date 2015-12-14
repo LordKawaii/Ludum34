@@ -737,22 +737,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 11455132, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
-      propertyPath: stopingHight
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11455132, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
-      propertyPath: desentSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11455132, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
-      propertyPath: TimeTillMovingOn
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 11455132, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
-      propertyPath: canStartDrop
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
   m_IsPrefabParent: 0
@@ -1397,9 +1381,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heroLives:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1864198678}
+  - {fileID: 687639563}
+  - {fileID: 907853801}
 --- !u!4 &1937602256
 Transform:
   m_ObjectHideFlags: 0
