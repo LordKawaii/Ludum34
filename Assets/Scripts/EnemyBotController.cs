@@ -7,6 +7,7 @@ public class EnemyBotController : NanoBotController {
 
     Transform BossTransform;
     bool movingTowardsPlayer = false;
+    bool canStartAttack = false;
     Vector3 playersLocation;
     Vector3 startingPoint;
 	// Override for NanoBotController Start()
@@ -31,9 +32,12 @@ public class EnemyBotController : NanoBotController {
 
     void FixedUpdate()
     {
-        MoveToAttack();
-        if(isBossMinon)
-            Swarm();
+        if (canStartAttack)
+        { 
+            MoveToAttack();
+            if(isBossMinon)
+                Swarm();
+        }
     }
 
     void LateUpdate()
@@ -83,7 +87,6 @@ public class EnemyBotController : NanoBotController {
 
     public override void Attack(GameObject target)
     {
-        //base.Attack(target);
         movingTowardsPlayer = true;
         isAttacking = true;
         if (isBossMinon)
@@ -110,6 +113,16 @@ public class EnemyBotController : NanoBotController {
 
             other.GetComponent<NanoBotController>().Attack(gameObject);
         }
+    }
+
+    public bool checkCanAttack()
+    {
+        return canStartAttack;
+    }
+
+    public void setCanAttack(bool canAttack)
+    {
+        canStartAttack = canAttack;
     }
 	
 }
