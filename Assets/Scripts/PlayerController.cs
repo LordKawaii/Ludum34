@@ -152,8 +152,11 @@ public class PlayerController : MonoBehaviour {
         if (other.tag == "NanoBot")
         {
             other.transform.parent = transform;
-            other.gameObject.GetComponent<NanoBotController>().PickUp();
-            nanobotsCollected.Push(other.gameObject);
+            if (! nanobotsCollected.Contains(other.gameObject))
+            { 
+                other.gameObject.GetComponent<NanoBotController>().PickUp();
+                nanobotsCollected.Push(other.gameObject);
+            }
         }
 
         if (other.tag == "Enemy" || other.tag == "Wall")

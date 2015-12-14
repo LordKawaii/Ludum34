@@ -332,9 +332,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -456,9 +454,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -778,64 +774,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1131031662}
---- !u!1001 &1166885124
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 471726, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -.209999993
-      objectReference: {fileID: 0}
-    - target: {fileID: 471726, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 11.3800001
-      objectReference: {fileID: 0}
-    - target: {fileID: 471726, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 471726, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 471726, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 471726, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 471726, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 471726, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 11455132, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
-      propertyPath: stopingHight
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 11455132, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
-      propertyPath: desentSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11455132, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
-      propertyPath: TimeTillMovingOn
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 11455132, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
-      propertyPath: canStartDrop
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1224921824
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,9 +939,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
-  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_MinimumChartSize: 4
   m_AutoUVMaxDistance: .5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
@@ -1527,6 +1463,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1937602256}
   - 114: {fileID: 1937602255}
+  - 114: {fileID: 1937602257}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -1561,4 +1498,19 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
+--- !u!114 &1937602257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1937602254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0452be53d87cf9e478d772f208696b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TotalNumWaves: 3
+  boss: {fileID: 154710, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
+  enemyWave: {fileID: 125070, guid: 70d202e0e47e10d4083137007c95d8ed, type: 2}
+  enemyIsSpawned: 0

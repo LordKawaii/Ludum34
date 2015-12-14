@@ -87,20 +87,23 @@ public class EnemyBotController : NanoBotController {
 
     public override void Attack(GameObject target)
     {
-        movingTowardsPlayer = true;
-        isAttacking = true;
-        if (isBossMinon)
+        if (canStartAttack)
         { 
-            BossTransform = transform.parent;
-            startingPoint = BossTransform.position;
-        }
-        else
-            startingPoint = new Vector3(transform.position.x, transform.position.y);
+            movingTowardsPlayer = true;
+            isAttacking = true;
+            if (isBossMinon)
+            { 
+                BossTransform = transform.parent;
+                startingPoint = BossTransform.position;
+            }
+            else
+                startingPoint = new Vector3(transform.position.x, transform.position.y);
 
-        rb2d.velocity = Vector2.zero;
-        rb2d.isKinematic = true;
-        transform.parent = null;
-        playersLocation = new Vector3(target.transform.position.x, target.transform.position.y);
+            rb2d.velocity = Vector2.zero;
+            rb2d.isKinematic = true;
+            transform.parent = null;
+            playersLocation = new Vector3(target.transform.position.x, target.transform.position.y);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

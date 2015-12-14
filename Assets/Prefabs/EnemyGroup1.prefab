@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d15ed58bac8438d478774c371547551b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRate: 1
+  attackRate: 3
   hp: 6
   movementSpeed: 0
   travelWidth: 0
@@ -246,7 +246,7 @@ MonoBehaviour:
   fireSpeed: 10
   maxVelocity: 10
   hp: 3
-  isBossMinon: 0
+  isBossMinon: 1
 --- !u!114 &11465722
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -266,7 +266,7 @@ MonoBehaviour:
   fireSpeed: 10
   maxVelocity: 10
   hp: 3
-  isBossMinon: 0
+  isBossMinon: 1
 --- !u!114 &11479824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -301,7 +301,7 @@ MonoBehaviour:
   fireSpeed: 10
   maxVelocity: 10
   hp: 3
-  isBossMinon: 0
+  isBossMinon: 1
 --- !u!212 &21205352
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -386,7 +386,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: attackRate
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: isBossMinon
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 125070}

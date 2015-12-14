@@ -11,12 +11,14 @@ public class EnemyWaveTimer : MonoBehaviour {
     Vector2 stopingPosition;
     bool hasStopped = false;
     List<EnemyBotController> enemyControllers;
+    GameController gameCon;
 
 	// Use this for initialization
 	void Start () {
         stopingPosition = new Vector2(0, stopingHight);
         TimeTillMovingOn += Time.time;
         enemyControllers = new List<EnemyBotController>();
+        gameCon = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
 
         foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
         {
@@ -55,5 +57,13 @@ public class EnemyWaveTimer : MonoBehaviour {
                     botcon.setCanAttack(false);
             
         }
+
+        if (transform.position.y <= -5)
+            Destroy(this.gameObject);
+    }
+
+    void OnDestroy()
+    {
+        gameCon.enemyIsSpawned = false;
     }
 }
