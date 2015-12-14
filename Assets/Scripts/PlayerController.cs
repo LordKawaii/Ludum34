@@ -53,6 +53,11 @@ public class PlayerController : MonoBehaviour {
         { 
             GenerateBot();
         }
+
+        if (lives <= 0)
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
     }
 
     void MovePlayer()

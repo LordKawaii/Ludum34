@@ -63,7 +63,7 @@ public class EnemyBossController : MonoBehaviour {
 
     void Attack()
     {
-        int randIndex = Random.Range(0, miniBaddies.Count - 1);
+        int randIndex = Random.Range(0, miniBaddies.Count);
         EnemyBotController miniBaddieCon;
         if (miniBaddies[randIndex] != null)
         { 

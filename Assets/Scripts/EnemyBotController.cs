@@ -5,9 +5,10 @@ public class EnemyBotController : NanoBotController {
     public int hp = 3;
     public bool isBossMinon = false;
 
+    Transform BossTransform;
     bool movingTowardsPlayer = false;
     Vector3 playersLocation;
-    Transform startingPoint;
+    Vector3 startingPoint;
 	// Override for NanoBotController Start()
 	override protected void Start () {
         try
@@ -31,7 +32,8 @@ public class EnemyBotController : NanoBotController {
     void FixedUpdate()
     {
         MoveToAttack();
-        Swarm();
+        if(isBossMinon)
+            Swarm();
     }
 
     void LateUpdate()
@@ -67,14 +69,14 @@ public class EnemyBotController : NanoBotController {
         else if (isAttacking)
         {
 
-            transform.position = Vector3.MoveTowards(transform.position, startingPoint.position, fireSpeed * Time.deltaTime);
-            RotateTowards(startingPoint.position);
-            if (transform.position == startingPoint.position)
+            transform.position = Vector3.MoveTowards(transform.position, startingPoint, fireSpeed * Time.deltaTime);
+            RotateTowards(startingPoint);
+            if (transform.position == startingPoint)
             { 
                 isAttacking = false;
                 rb2d.isKinematic = false;
                 if (isBossMinon)
-                    transform.parent = startingPoint;
+                    transform.parent = BossTransform;
             }
         }
     }
@@ -85,7 +87,13 @@ public class EnemyBotController : NanoBotController {
         movingTowardsPlayer = true;
         isAttacking = true;
         if (isBossMinon)
-            startingPoint = transform.parent;
+        { 
+            BossTransform = transform.parent;
+            startingPoint = BossTransform.position;
+        }
+        else
+            startingPoint = new Vector3(transform.position.x, transform.position.y);
+
         rb2d.velocity = Vector2.zero;
         rb2d.isKinematic = true;
         transform.parent = null;
