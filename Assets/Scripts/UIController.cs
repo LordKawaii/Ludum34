@@ -9,13 +9,17 @@ public class UIController : MonoBehaviour
 
     public List<Image> heroLives;
     public Text attachedBots;
+    public Text youWinTxt;
+    public Text youLooseTxt;
 
     PlayerController playerController;
+    GameController gameCon;
 
     // Use this for initialization
     void Start()
     {
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        gameCon = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 
     // Update is called once per frame
@@ -26,6 +30,16 @@ public class UIController : MonoBehaviour
            heroLives[playerController.lives].enabled = false;
 
         attachedBots.text = "x " + playerController.GetTotalBotCount();
+
+        if (gameCon.CheckBossHasDied())
+        {
+            youWinTxt.enabled = true;
+        }
+
+        if (gameCon.CheckPlayerHasDied())
+        {
+            youLooseTxt.enabled = true;
+        }
 
     }
 }

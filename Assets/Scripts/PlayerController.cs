@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 
     List<GameObject> chargedNanobots;
     Stack<GameObject> nanobotsCollected;
+    GameController gameCon;
     Rigidbody2D rb2D;
     SpriteRenderer spriteRend;
     bool isCharging = false;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        gameCon = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
         spriteRend = gameObject.GetComponent<SpriteRenderer>();
         chargedNanobots = new List<GameObject>();
         nanobotsCollected = new Stack<GameObject>();
@@ -56,7 +58,9 @@ public class PlayerController : MonoBehaviour {
 
         if (lives <= 0)
         {
-            Application.LoadLevel(Application.loadedLevel);
+            spriteRend.enabled = false;
+            gameCon.SetPlayerHasDied(true);
+            Destroy(gameObject);
         }
     }
 

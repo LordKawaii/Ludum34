@@ -7,16 +7,19 @@ public class EnemyBossController : MonoBehaviour {
     List<GameObject> miniBaddies;
     float timeTillNextAttack;
     GameObject player;
+    GameController gameCon;
 
     public float attackRate = 1;
     public int hp = 6;
     public float movementSpeed;
     public float travelWidth;
+    public bool realBoss = false;
 
     void Awake()
     {
         miniBaddies = new List<GameObject>();
         timeTillNextAttack = Time.time + attackRate;
+        gameCon = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 
 	void Start () {
@@ -82,6 +85,14 @@ public class EnemyBossController : MonoBehaviour {
                 hp--;
 
             other.GetComponent<NanoBotController>().Attack(gameObject);
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (realBoss)
+        { 
+            gameCon.SetBossHasDied(true);
         }
     }
 }
