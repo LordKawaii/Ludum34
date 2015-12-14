@@ -3,33 +3,30 @@ using System.Collections;
 
 public class WallRepeater : MonoBehaviour {
 
-    public  GameObject wallOne;
-    public GameObject wallTwo;
+    public  GameObject wall; 
     public GameObject floor;
-    public float wallSpeed = .20f;
-
-
-
-    public Vector3 initialPositionOne;
-    public Vector3 initialPositionTwo;
-    public double wallOneMaxLimit = 0;
-    public double wallTwoMaxLimit = 0;
-
+    public float wallSpeed = .20f; 
+       
+    Renderer rendF;
+    Renderer rendW;
+     
 
     // Use this for initialization
     void Start () {
-    initialPositionOne = wallOne.transform.position;
-    initialPositionTwo = wallTwo.transform.position;
-        wallOneMaxLimit -= wallOne.transform.lossyScale.y ;
-        wallTwoMaxLimit -= wallTwo.transform.lossyScale.y;
-       
+        rendF = GetComponent<Renderer>();
+        rendW = wall.GetComponent<Renderer>(); 
     }
 	
 	// Update is called once per frame
-	void Update () {
-        wallOne.transform.position -= (new Vector3(0, wallSpeed));
-        wallTwo.transform.position -= (new Vector3(0, wallSpeed));
-        if (wallOne.transform.position.y <= (floor.transform.lossyScale.y * -1) -5) wallOne.transform.position = initialPositionOne;
-        if (wallTwo.transform.position.y <= (floor.transform.lossyScale.y * -1) - 5) wallTwo.transform.position = initialPositionOne;
+	void Update ()
+    { 
+        Vector2 offsetF = rendF.material.GetTextureOffset("_MainTex");
+        offsetF -= new Vector2(0, wallSpeed * .05f );
+        rendF.material.SetTextureOffset("_MainTex", new Vector2(0, offsetF.y));
+
+        Vector2 offsetW = rendW.material.GetTextureOffset("_MainTex");
+        offsetW -= new Vector2(0,  wallSpeed *.05f);
+        rendW.material.SetTextureOffset("_MainTex", new Vector2(0, offsetW.y));
+
     }
 }

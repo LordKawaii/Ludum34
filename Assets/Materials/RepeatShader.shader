@@ -6,7 +6,7 @@
 	_Color("Tint", Color) = (1,1,1,1)
 		[MaterialToggle] PixelSnap("Pixel snap", Float) = 0
 		RepeatX("Repeat X", Float) = 1
-		RepeatY("Repeat Y", Float) = 1
+		RepeatY("Repeat Y", Float) = 1 
 	}
 
 		SubShader
@@ -47,15 +47,16 @@
 		half2 texcoord  : TEXCOORD0;
 	};
 
-	fixed4 _Color;
+	fixed4 _Color; 
 	half RepeatX;
 	half RepeatY;
+	float4 Offset;
 
 	v2f vert(appdata_t IN)
 	{
 		v2f OUT;
 		OUT.vertex = mul(UNITY_MATRIX_MVP, IN.vertex);
-		OUT.texcoord = IN.texcoord * half2(RepeatX, RepeatY);
+		OUT.texcoord = IN.texcoord * half2(RepeatX, RepeatY) ;
 		OUT.color = IN.color * _Color;
 #ifdef PIXELSNAP_ON
 		OUT.vertex = UnityPixelSnap(OUT.vertex);

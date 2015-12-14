@@ -7,10 +7,10 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Wall Material
-  m_Shader: {fileID: 4800000, guid: 4f2ff545ce54cd4469e57950b52a0d3c, type: 3}
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _ALPHATEST_ON
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2450
   stringTagMap:
     RenderType: TransparentCutout
   m_SavedProperties:
@@ -70,7 +70,7 @@ Material:
           name: _DetailAlbedoMap
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 54, y: 137.529999}
+          m_Scale: {x: 54, y: 105.199997}
           m_Offset: {x: 0, y: 0}
       data:
         first:
