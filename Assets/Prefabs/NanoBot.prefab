@@ -72,11 +72,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swarmSpeed: 300
-  swarmRadius: .300000012
+  swarmRadius: .5
   rotationSpeed: 300
   frequencyOfChange: .00100000005
   chargeDistance: .200000003
   fireSpeed: 100
+  maxVelocity: 10
 --- !u!212 &21213524
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -109,7 +110,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: swarmRadius
+      value: .5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 165280}

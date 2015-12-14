@@ -4,6 +4,8 @@ using System.Collections;
 public class EnemyBotController : NanoBotController {
     public int hp = 3;
     public bool isBossMinon = false;
+    public int numBotsSpawnedOnDeath = 2;
+    public GameObject nanoBot;
 
     Transform BossTransform;
     bool movingTowardsPlayer = false;
@@ -55,6 +57,11 @@ public class EnemyBotController : NanoBotController {
             foreach (Transform nanobotTransform in GetComponentInChildren<Transform>())
             {
                 nanobotTransform.gameObject.GetComponent<NanoBotController>().EndAttack();
+            }
+            for (int i = 0; i < numBotsSpawnedOnDeath; i++)
+            {
+                GameObject nano = Instantiate(nanoBot, new Vector3(transform.position.x + Random.Range(-.2f, .2f), transform.position.y + Random.Range(-.2f, .2f)), new Quaternion(0, 0, 0, 0)) as GameObject;
+                nano.GetComponent<Rigidbody2D>().AddForce(Vector2.down * 150);
             }
         }
     }

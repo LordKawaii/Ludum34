@@ -1662,7 +1662,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0452be53d87cf9e478d772f208696b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TotalNumWaves: 3
+  TotalNumWaves: 9
   boss: {fileID: 154710, guid: f49e4bd8f4f2f8e45894e5edf14b7698, type: 2}
   enemyWave: {fileID: 125070, guid: 70d202e0e47e10d4083137007c95d8ed, type: 2}
   enemyIsSpawned: 0
+  timeTillFirstWave: 6

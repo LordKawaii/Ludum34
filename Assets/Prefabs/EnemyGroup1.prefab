@@ -227,6 +227,7 @@ MonoBehaviour:
   hp: 6
   movementSpeed: 0
   travelWidth: 0
+  realBoss: 0
 --- !u!114 &11465392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -243,10 +244,12 @@ MonoBehaviour:
   rotationSpeed: 300
   frequencyOfChange: .00100000005
   chargeDistance: .0599999987
-  fireSpeed: 10
+  fireSpeed: 4
   maxVelocity: 10
   hp: 3
   isBossMinon: 1
+  numBotsSpawnedOnDeath: 3
+  nanoBot: {fileID: 165280, guid: 78432dcee95cad843813ed98efd819da, type: 2}
 --- !u!114 &11465722
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -263,10 +266,12 @@ MonoBehaviour:
   rotationSpeed: 300
   frequencyOfChange: .00100000005
   chargeDistance: .0599999987
-  fireSpeed: 10
+  fireSpeed: 4
   maxVelocity: 10
   hp: 3
   isBossMinon: 1
+  numBotsSpawnedOnDeath: 3
+  nanoBot: {fileID: 165280, guid: 78432dcee95cad843813ed98efd819da, type: 2}
 --- !u!114 &11479824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -281,7 +286,7 @@ MonoBehaviour:
   canStartDrop: 1
   stopingHight: 4
   desentSpeed: 3
-  TimeTillMovingOn: 8
+  TimeTillMovingOn: 15
 --- !u!114 &11487670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -298,10 +303,12 @@ MonoBehaviour:
   rotationSpeed: 300
   frequencyOfChange: .00100000005
   chargeDistance: .0599999987
-  fireSpeed: 10
+  fireSpeed: 4
   maxVelocity: 10
   hp: 3
   isBossMinon: 1
+  numBotsSpawnedOnDeath: 3
+  nanoBot: {fileID: 165280, guid: 78432dcee95cad843813ed98efd819da, type: 2}
 --- !u!212 &21205352
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -395,6 +402,18 @@ Prefab:
       propertyPath: isBossMinon
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: fireSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: TimeTillMovingOn
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: nanoBot
+      value: 
+      objectReference: {fileID: 165280, guid: 78432dcee95cad843813ed98efd819da, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 125070}

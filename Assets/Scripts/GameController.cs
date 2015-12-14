@@ -6,18 +6,20 @@ public class GameController : MonoBehaviour {
     public GameObject boss;
     public GameObject enemyWave;
     public bool enemyIsSpawned = false;
+    public float timeTillFirstWave = 1;
 
     bool bossHasDied = false;
     bool playerHasDied = false;
     int totalCompletedWaves = 0;
 	// Use this for initialization
 	void Start () {
-	
-	}
+        timeTillFirstWave += Time.time;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        if (!enemyIsSpawned && totalCompletedWaves <= TotalNumWaves)
+
+        if (!enemyIsSpawned && totalCompletedWaves < TotalNumWaves && Time.time >= timeTillFirstWave)
         {
             if (TotalNumWaves - totalCompletedWaves == 1)
             {
@@ -31,8 +33,7 @@ public class GameController : MonoBehaviour {
                 totalCompletedWaves++;
                 enemyIsSpawned = true;
             }
-
-            Debug.Log(totalCompletedWaves);
+            
         }
 
         if (Input.GetKeyDown(KeyCode.R) && (bossHasDied || playerHasDied))
