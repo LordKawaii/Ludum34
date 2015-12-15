@@ -114,7 +114,11 @@ public class PlayerController : MonoBehaviour {
             {
                 foreach (GameObject nanobot in chargedNanobots)
                 {
-                    nanobot.GetComponent<NanoBotController>().Fire();
+                       if(nanobot != null)
+                    {
+                        nanobot.GetComponent<NanoBotController>().Fire();
+                    }
+                    
                 }
                 chargedNanobots = new List<GameObject>();
                 isCharging = false;
