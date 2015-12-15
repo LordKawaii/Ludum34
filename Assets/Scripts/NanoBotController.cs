@@ -107,10 +107,12 @@ public class NanoBotController : MonoBehaviour {
         if (!isAttacking)
         { 
             swarmTarget = transform.parent.gameObject;
-            rb2d.isKinematic = false;
+            hasBeenFired = false; 
             hasBeenPickedUp = true;
-            hasBeenFired = false;
-            timeTillChange = Time.time + Random.Range(0, frequencyOfChange);
+            isCharging = false;
+            isAttacking = false;
+            isSwarming = true;
+            timeTillChange = 0;
         }
     }
 
