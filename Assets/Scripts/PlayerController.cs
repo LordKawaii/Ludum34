@@ -12,12 +12,14 @@ public class PlayerController : MonoBehaviour {
     public int lives = 3;
     public float invulerableTime = 1;
     public float percentFlashTakes = 2f;
+    public List<AudioClip> shootSounds;
 
     List<GameObject> chargedNanobots;
     Stack<GameObject> nanobotsCollected;
     GameController gameCon;
     Rigidbody2D rb2D;
     SpriteRenderer spriteRend;
+    AudioSource auSource;
     bool isCharging = false;
     bool isInvulnerable = false;
     bool hasSetInvTime = false;
@@ -34,12 +36,12 @@ public class PlayerController : MonoBehaviour {
         chargedNanobots = new List<GameObject>();
         nanobotsCollected = new Stack<GameObject>();
         rb2D = gameObject.GetComponent<Rigidbody2D>();
+        auSource = GetComponent<AudioSource>();
         InvFlashTime = invulerableTime * (percentFlashTakes / 100);
         timeTillNextFlash = Time.time + InvFlashTime;
         timeTillInvEnds = Time.time + invulerableTime;
         timeTillNextCharge = Time.time + nanobotChargeRate;
         timeTillNextBotGen = Time.time + timeTillNextBotGen;
-        
 
     }
 	
@@ -49,7 +51,10 @@ public class PlayerController : MonoBehaviour {
         CheckIfShooting();
 
         if (isInvulnerable)
+        {
             MakeInvulnerable();
+        }
+            
 
         if((nanobotsCollected.Count + chargedNanobots.Count) < 3 && Time.time >= timeTillNextBotGen)
         { 
@@ -100,6 +105,11 @@ public class PlayerController : MonoBehaviour {
         }
         if (Input.GetButtonUp("Fire1"))
         {
+            if (!auSource.isPlaying)
+            {
+                auSource.clip = shootSounds[Random.Range(0, shootSounds.Count)];
+                auSource.Play();
+            }
             if (chargedNanobots.Count > 0)
             {
                 foreach (GameObject nanobot in chargedNanobots)
@@ -175,5 +185,10 @@ public class PlayerController : MonoBehaviour {
     public int GetTotalBotCount()
     {
         return chargedNanobots.Count + nanobotsCollected.Count;
+    }
+
+    public bool CheckIfHit()
+    {
+        return isInvulnerable;
     }
 }

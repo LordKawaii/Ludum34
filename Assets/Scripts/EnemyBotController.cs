@@ -1,24 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemyBotController : NanoBotController {
     public int hp = 3;
     public bool isBossMinon = false;
     public int numBotsSpawnedOnDeath = 2;
     public GameObject nanoBot;
+    public List<AudioClip> hitSounds;
+    public List<AudioClip> talkSounds;
+    public float talkRate = .5f;
 
     Transform BossTransform;
     bool movingTowardsPlayer = false;
     bool canStartAttack = false;
     Vector3 playersLocation;
     Vector3 startingPoint;
+    AudioSource auSource;
+    float timeTillTalk;
+
 	// Override for NanoBotController Start()
 	override protected void Start () {
         try
         {
+            timeTillTalk = Time.time + (talkRate / Random.Range(0f, 1f));
             hasBeenPickedUp = true;
             timeTillChange = Time.time + Random.Range(0, frequencyOfChange);
             rb2d = gameObject.GetComponent<Rigidbody2D>();
+            auSource = GetComponent<AudioSource>();
         }
         catch
         {
@@ -30,6 +39,18 @@ public class EnemyBotController : NanoBotController {
 
         CheckForDeath();
 
+
+        if (Time.time >= timeTillTalk)
+        {
+            timeTillTalk = Time.time + 1f / (talkRate * Random.Range(0f, 1f));
+            if (!auSource.isPlaying)
+            {
+                auSource.volume = .5f;
+                auSource.clip = talkSounds[Random.Range(0, talkSounds.Count)];
+                auSource.Play();
+            }
+
+        }
     }
 
     void FixedUpdate()
@@ -119,9 +140,18 @@ public class EnemyBotController : NanoBotController {
         {
             NanoBotController nanoCon = other.GetComponent<NanoBotController>();
             if (!nanoCon.CheckIfAttacking() && !nanoCon.CheckIfSwarming())
+            { 
                 hp--;
 
-            other.GetComponent<NanoBotController>().Attack(gameObject);
+                other.GetComponent<NanoBotController>().Attack(gameObject);
+                if (!auSource.isPlaying)
+                {
+                    auSource.volume = 1f;
+                    auSource.clip = hitSounds[Random.Range(0, hitSounds.Count)];
+                    auSource.Play();
+                }
+            }
+
         }
     }
 

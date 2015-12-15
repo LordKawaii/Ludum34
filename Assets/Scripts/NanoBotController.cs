@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class NanoBotController : MonoBehaviour {
     public float swarmSpeed;
@@ -23,8 +24,6 @@ public class NanoBotController : MonoBehaviour {
     protected virtual void Start () {
         timeTillChange = Time.time + Random.Range(0, frequencyOfChange);
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-
-
     }
 
     // Update is called once per frame
