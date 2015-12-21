@@ -108,7 +108,11 @@ public class EnemyBotController : NanoBotController {
                 isAttacking = false;
                 rb2d.isKinematic = false;
                 if (isBossMinon)
+                {
                     transform.parent = BossTransform;
+                    GetComponent<UnityJellySprite>().m_CentralBodyKinematic = true;
+                }
+                    
             }
         }
     }
@@ -122,7 +126,7 @@ public class EnemyBotController : NanoBotController {
             if (isBossMinon)
             { 
                 BossTransform = transform.parent;
-                startingPoint = BossTransform.position;
+                startingPoint = BossTransform.position; 
             }
             else
                 startingPoint = new Vector3(transform.position.x, transform.position.y);

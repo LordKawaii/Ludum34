@@ -50,13 +50,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 471726}
-  - 212: {fileID: 21297474}
   - 114: {fileID: 11427046}
   - 50: {fileID: 5002314}
   - 114: {fileID: 11463564}
   - 95: {fileID: 9541646}
   - 61: {fileID: 6109398}
   - 114: {fileID: 11455132}
+  - 33: {fileID: 3392546}
+  - 23: {fileID: 2394162}
+  - 114: {fileID: 11463538}
   m_Layer: 0
   m_Name: BossGroup
   m_TagString: Enemy
@@ -204,6 +206,39 @@ Transform:
   m_Children: []
   m_Father: {fileID: 471726}
   m_RootOrder: 4
+--- !u!23 &2394162
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154710}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!33 &3392546
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154710}
+  m_Mesh: {fileID: 0}
 --- !u!50 &5002314
 Rigidbody2D:
   serializedVersion: 2
@@ -211,7 +246,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154710}
-  m_Mass: 1
+  m_Mass: .200000003
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 0
@@ -884,7 +919,7 @@ MonoBehaviour:
   frequencyOfChange: .00100000005
   chargeDistance: .00999999978
   fireSpeed: 10
-  maxVelocity: 10
+  maxVelocity: 2
 --- !u!114 &11453612
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -974,6 +1009,52 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 243848523b738d943906b228bacab4f6, type: 3}
   - {fileID: 8300000, guid: b9670ee6dee48ee47a7f63951f0d6237, type: 3}
   talkRate: .5
+--- !u!114 &11463538
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 154710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f1fa7a810d84c4f8ed2cfed9eec8f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Style: 2
+  m_FreeModeBodyPositions: []
+  m_FreeModeBodyRadii: []
+  m_FreeModeBodyKinematic: 
+  m_MassStyle: 0
+  m_PhysicsMaterial: {fileID: 0}
+  m_PhysicsMaterial2D: {fileID: 0}
+  m_VertexDensity: 10
+  m_SphereRadius: .25
+  m_DistanceExponent: 2
+  m_Stiffness: 2.5
+  m_Mass: -.449999988
+  m_LockRotation: 1
+  m_GravityScale: 1
+  m_CollideConnected: 0
+  m_CentralBodyKinematic: 0
+  m_Drag: 4.38000011
+  m_AngularDrag: .0500000007
+  m_RadiusPoints: 8
+  m_GridColumns: 4
+  m_GridRows: 4
+  m_DampingRatio: 0
+  m_SoftBodyScale: {x: 1, y: 1}
+  m_SoftBodyRotation: 0
+  m_SoftBodyOffset: {x: -0, y: -0}
+  m_CentralBodyOffset: {x: -0, y: -0}
+  m_SpriteScale: {x: 1, y: 1}
+  m_2DMode: 0
+  m_AttachNeighbors: 0
+  m_FlipX: 0
+  m_FlipY: 0
+  m_NumAttachPoints: 0
+  m_AttachPoints: []
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 3bece4283fe687e4594b55c73a39936b, type: 3}
 --- !u!114 &11463564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -987,7 +1068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRate: 1
   hp: 6
-  movementSpeed: 2
+  movementSpeed: 1
   travelWidth: 2
   realBoss: 1
 --- !u!114 &11466596
@@ -1204,34 +1285,6 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d17bdd7fd6f53a74b83965345be2a38b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!212 &21297474
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 154710}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 0
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1fe69212c58eab04dbcd2e2cf0b10095, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -1284,6 +1337,30 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Style
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Mass
+      value: -.449999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: movementSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxVelocity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Drag
+      value: 4.38000011
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_MassStyle
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 154710}

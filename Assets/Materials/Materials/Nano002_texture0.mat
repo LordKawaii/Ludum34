@@ -6,13 +6,12 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: FloorMaterial
+  m_Name: Nano002_texture0
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _DETAIL_MULX2 _EMISSION _NORMALMAP _PARALLAXMAP
-  m_LightmapFlags: 2
-  m_CustomRenderQueue: 3000
-  stringTagMap:
-    RenderType: Transparent
+  m_ShaderKeywords: _METALLICGLOSSMAP
+  m_LightmapFlags: 5
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -20,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: e4a9e02f395af154abf3fc9d189d342c, type: 3}
+          m_Texture: {fileID: 2800000, guid: abdbbed1e666a7c4e8f69e64b4f0de51, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -34,14 +33,14 @@ Material:
         first:
           name: _DetailNormalMap
         second:
-          m_Texture: {fileID: 2800000, guid: e4a9e02f395af154abf3fc9d189d342c, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _ParallaxMap
         second:
-          m_Texture: {fileID: 2800000, guid: e4a9e02f395af154abf3fc9d189d342c, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -76,6 +75,13 @@ Material:
         first:
           name: _MetallicGlossMap
         second:
+          m_Texture: {fileID: 2800000, guid: abdbbed1e666a7c4e8f69e64b4f0de51, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _SpecGlossMap
+        second:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
@@ -87,27 +93,23 @@ Material:
       data:
         first:
           name: _DstBlend
-        second: 10
+        second: 0
       data:
         first:
           name: _Cutoff
         second: .5
       data:
         first:
-          name: PixelSnap
-        second: 0
-      data:
-        first:
           name: _Parallax
-        second: .0350000001
+        second: .0199999996
       data:
         first:
           name: _ZWrite
-        second: 0
+        second: 1
       data:
         first:
           name: _Glossiness
-        second: 0
+        second: .5
       data:
         first:
           name: _BumpScale
@@ -123,29 +125,25 @@ Material:
       data:
         first:
           name: _UVSec
-        second: 1
+        second: 0
       data:
         first:
           name: _Mode
-        second: 3
+        second: 0
       data:
         first:
           name: _Metallic
         second: 0
-      data:
-        first:
-          name: RepeatX
-        second: 1
-      data:
-        first:
-          name: RepeatY
-        second: 1
     m_Colors:
       data:
         first:
           name: _EmissionColor
-        second: {r: .625, g: 0, b: 0, a: 1}
+        second: {r: 0, g: 0, b: 0, a: 1}
       data:
         first:
           name: _Color
-        second: {r: .596078455, g: .596078455, b: .596078455, a: 1}
+        second: {r: .800000012, g: .800000012, b: .800000012, a: 1}
+      data:
+        first:
+          name: _SpecColor
+        second: {r: .200000003, g: .200000003, b: .200000003, a: 1}

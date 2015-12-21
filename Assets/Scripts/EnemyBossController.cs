@@ -8,6 +8,7 @@ public class EnemyBossController : MonoBehaviour {
     float timeTillNextAttack;
     GameObject player;
     GameController gameCon;
+    UnityJellySprite jelly;
 
     public float attackRate = 1;
     public int hp = 6;
@@ -30,14 +31,21 @@ public class EnemyBossController : MonoBehaviour {
             if (enemy.transform.parent == transform)
             {
                 miniBaddies.Add(enemy);
-            }
+            } 
         }
+        jelly = GetComponent<UnityJellySprite>();
     }
 	
 	// Update is called once per frame
 	void Update ()
-    {
-        Move();
+    {  
+        if (jelly.m_CentralBodyKinematic)
+        {
+            MoveKinematic();
+        } 
+            Move();  
+        
+        
 
         if (Time.time >= timeTillNextAttack)
         {
@@ -54,6 +62,7 @@ public class EnemyBossController : MonoBehaviour {
 
     void Move()
     {
+       
         if (movingRight && transform.position.x <= travelWidth)
             transform.Translate(Vector2.right * Time.deltaTime * movementSpeed);
         if (transform.position.x >= travelWidth)
@@ -61,6 +70,19 @@ public class EnemyBossController : MonoBehaviour {
         if (!movingRight && transform.position.x >= -travelWidth)
             transform.Translate(Vector2.left * Time.deltaTime * movementSpeed);
         if (transform.position.x <= -travelWidth)
+            movingRight = true;
+    }
+     
+     
+    void MoveKinematic()
+    { 
+        if (movingRight && jelly.m_CentralBodyOffset.x <= travelWidth)
+            jelly.m_CentralBodyOffset += Vector2.right * Time.deltaTime * movementSpeed;
+        if (jelly.m_CentralBodyOffset.x >= travelWidth)
+            movingRight = false;
+        if (!movingRight && jelly.m_CentralBodyOffset.x >= -travelWidth)
+            jelly.m_CentralBodyOffset +=  Vector2.left * Time.deltaTime * movementSpeed;
+        if (jelly.m_CentralBodyOffset.x <= -travelWidth)
             movingRight = true;
     }
 

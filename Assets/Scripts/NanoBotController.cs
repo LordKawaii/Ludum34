@@ -85,9 +85,12 @@ public class NanoBotController : MonoBehaviour {
         if (!isAttacking && !hasBeenPickedUp)
         {
             rb2d.velocity = new Vector2(0, 0);
-            rb2d.isKinematic = true;
-            transform.parent = target.transform;
             isAttacking = true;
+            if (GetComponent<UnityJellySprite>()) 
+                GetComponent<UnityJellySprite>().m_CentralBodyKinematic = true; 
+             rb2d.isKinematic = true;
+             transform.parent = target.transform; 
+             
         }
     }
 

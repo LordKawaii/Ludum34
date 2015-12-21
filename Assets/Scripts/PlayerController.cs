@@ -77,10 +77,12 @@ public class PlayerController : MonoBehaviour {
         if (horizontalAxis != 0)
         {
             transform.Translate(new Vector3(horizontalAxis * movementSpeed, 0));
+            GameObject.Find("Nano003").transform.Rotate(new Vector3(horizontalAxis,0 ));
         }
         if (verticalAxis != 0)
         {
             transform.Translate(new Vector3(0, verticalAxis * movementSpeed));
+            GameObject.Find("Nano003").transform.Rotate(new Vector3(0, verticalAxis));
         }
     }
 
