@@ -39,10 +39,6 @@ public class EnemyBossController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {  
-        if (jelly.m_CentralBodyKinematic)
-        {
-            MoveKinematic();
-        } 
             Move();  
         
         

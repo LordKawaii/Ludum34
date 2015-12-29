@@ -109,8 +109,7 @@ public class EnemyBotController : NanoBotController {
                 rb2d.isKinematic = false;
                 if (isBossMinon)
                 {
-                    transform.parent = BossTransform;
-                    GetComponent<UnityJellySprite>().m_CentralBodyKinematic = true;
+                    transform.parent = BossTransform; 
                 }
                     
             }
